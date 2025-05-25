@@ -1,5 +1,5 @@
 {{/* layouts/partials/hero.html */}}
-{{ with resources.Get "images/salada.jpg" }}
+{{ with .Page.Resources.GetMatch "salada.jpg" }}
   {{ $res := .Resize "640x q75" }}
   {{ $avif := images.Format $res "avif" | fingerprint "sha384" }}
   {{ $webp := images.Format $res "webp" | fingerprint "sha384" }}

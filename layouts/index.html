@@ -1,10 +1,10 @@
-{{ define "main" }}
-  {{ partial "hero.html" . }}
-{{ end }}
-{{ define "base" }}
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8"><title>Test Images</title></head>
-<body>{{ block "main" . }}{{ end }}</body>
+<head>
+  <meta charset="UTF-8">
+  <title>Test Hugo Images</title>
+</head>
+<body>
+  {{ partial "hero.html" . }}
+</body>
 </html>
-{{ end }}
