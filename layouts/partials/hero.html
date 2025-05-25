@@ -1,6 +1,6 @@
 {{/* layouts/partials/hero.html */}}
 <section class="hero">
-  {{ with resources.Get "images/hero-bg.jpg" }}
+  {{ with resources.Get "images/salada.jpg" }}
     {{ $res := .Fill "640x q75" }}
     {{ $avif := images.Format $res "avif" | fingerprint "sha384" }}
     {{ $webp := images.Format $res "webp" | fingerprint "sha384" }}
