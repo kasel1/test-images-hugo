@@ -1,16 +1,14 @@
 {{/* layouts/partials/hero.html */}}
-<section class="hero">
-  {{ with resources.Get "images/salada.jpg" }}
-    {{ $res := .Fill "640x q75" }}
-    {{ $avif := images.Format $res "avif" | fingerprint "sha384" }}
-    {{ $webp := images.Format $res "webp" | fingerprint "sha384" }}
-    {{ $jpg  := $res | fingerprint "sha384" }}
-    <picture>
-      <source type="image/avif"  srcset="{{ $avif.RelPermalink }}">
-      <source type="image/webp" srcset="{{ $webp.RelPermalink }}">
-      <img src="{{ $jpg.RelPermalink }}" alt="Hero">
-    </picture>
-  {{ else }}
-    <p>Image “hero-bg.jpg” manquante</p>
-  {{ end }}
-</section>
+{{ with resources.Get "images/salada.jpg" }}
+  {{ $res := .Resize "640x q75" }}
+  {{ $avif := images.Format $res "avif" | fingerprint "sha384" }}
+  {{ $webp := images.Format $res "webp" | fingerprint "sha384" }}
+  {{ $jpg  := $res | fingerprint "sha384" }}
+  <picture>
+    <source type="image/avif"  srcset="{{ $avif.RelPermalink }}">
+    <source type="image/webp" srcset="{{ $webp.RelPermalink }}">
+    <img src="{{ $jpg.RelPermalink }}" alt="Test image">
+  </picture>
+{{ else }}
+  <p>Image “salada.jpg” introuvable</p>
+{{ end }}
